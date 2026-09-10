@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import 'regenerator-runtime/runtime'
 const User1 = (props) => {
    const id = props.match.params.id;
-
    let [user, setUser] = useState([]);
-
    let getdata = async () => {
-      let response = await fetch('https://jsonplaceholder.typicode.com/users/');
+      let response = await fetch('https://jsonplaceholder.typicode.com/users');
 
       let res = await response.json();
 
