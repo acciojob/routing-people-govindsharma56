@@ -17,12 +17,14 @@ const Home=()=>{
         if(loading)return(<h2>Loading...</h2>)
       return(
         <div>
-            <h1>User Details</h1>
+            <h1>User List</h1>
              {user?.map((item) => (
          <ul key={item.id}>
-            <Link to={`/users/${item.id}`}>
-               <li>{item.name}</li>
-            </Link>
+            <li>
+          <Link to={`/users/${item.id}`}>
+            {item.name}
+          </Link>
+         </li>
         </ul>
 ))}
         </div>
