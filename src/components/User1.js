@@ -12,7 +12,7 @@ const User1 = (props) => {
    };
    useEffect(() => {
       getdata();
-   }, []);
+   }, [id]);
    if (loading) {
    return <div>Loading...</div>;
 }
