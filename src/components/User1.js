@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime'
 const User1 = (props) => {
    const id = props.match.params.id;
    let [user, setUser] = useState([]);
-   let [loading, setLoading] = useState(null);
+   let [loading, setLoading] = useState(true);
    let getdata = async () => {
       let response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
       let res = await response.json();
@@ -13,32 +13,29 @@ const User1 = (props) => {
    useEffect(() => {
       getdata();
    }, []);
-   if (!loading) {
+   if (loading) {
    return <div>Loading...</div>;
 }
 
-   let userfind = user.find((item) => item.id == id);
-
-   console.log(userfind);
    
 
    return (
       <div>   
           <h1>User Details</h1>
       <p>
-        <strong>Name:</strong> {userfind.name}
+        <strong>Name:</strong> {user.name}
       </p>
       <p>
-        <strong>Username:</strong> {userfind.username}
+        <strong>Username:</strong> {user.username}
       </p>
       <p>
-        <strong>Email:</strong> {userfind.email}
+        <strong>Email:</strong> {user.email}
       </p>
       <p>
-        <strong>Phone:</strong> {userfind.phone}
+        <strong>Phone:</strong> {user.phone}
       </p>
       <p>
-        <strong>Website:</strong> {userfind.website}
+        <strong>Website:</strong> {user.website}
       </p>
     </div>
    );
