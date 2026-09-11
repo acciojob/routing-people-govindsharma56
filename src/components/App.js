@@ -3,17 +3,7 @@ import './../styles/App.css';
 import {Switch,Route, Link } from "react-router-dom";
 import Home from './Home'
 import User1 from "./User1";
-const App = () => {
-     let [user,setUser]=useState([]);
-            let getdata=async ()=>{
-                 let response=await fetch('https://jsonplaceholder.typicode.com/users');
-                 let res=await response.json();
-                 setUser(res);
-            }
-         useEffect(()=>{
-             getdata();
-         },[])  
-         
+const App = () => {    
   return (
     <div>
           <Switch>

@@ -3,18 +3,17 @@ import 'regenerator-runtime/runtime'
 const User1 = (props) => {
    const id = props.match.params.id;
    let [user, setUser] = useState([]);
-   let [loading, setLoading] = useState(true);
+   let [loading, setLoading] = useState(null);
    let getdata = async () => {
-      let response = await fetch('https://jsonplaceholder.typicode.com/users');
+      let response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
       let res = await response.json();
       setUser(res);
       setLoading(false);
    };
-
    useEffect(() => {
       getdata();
    }, []);
-   if (loading) {
+   if (!loading) {
    return <div>Loading...</div>;
 }
 
